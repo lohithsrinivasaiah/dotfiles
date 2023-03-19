@@ -19,13 +19,13 @@ To install these dotfiles, follow these steps:
 
 3.  Run the install script to create symlinks for the dotfiles and back up any existing files:
     ```sh
-    ./setup.sh
+    ./install.sh
     ```
     If you make any changes to the dotfiles, you can re-run this script to update the symlinks.
 
 4.  (Optional) If you want to delete the symlinks and restore the backed up dotfiles, run the uninstall script
     ```sh
-    ./del.sh
+    ./uninstall.sh
     ```
 
 Vim
