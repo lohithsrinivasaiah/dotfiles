@@ -1,0 +1,6 @@
+" Leader key
+let mapleader = " "
+
+source ~/.vim/plugins.vim
+source ~/.vim/remaps.vim
+source ~/.vim/settings.vim
