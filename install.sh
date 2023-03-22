@@ -19,6 +19,8 @@ backup_file "$HOME/.vim/remaps.vim"
 backup_file "$HOME/.vim/settings.vim"
 backup_file "$HOME/.tmux.conf"
 
+echo "Creating symlinks....."
+
 # Create symlinks for files
 ln -sfv $PWD/vim/vimrc $HOME/.vimrc
 ln -sfv $PWD/vim/plugins.vim $HOME/.vim/plugins.vim
