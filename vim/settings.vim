@@ -13,8 +13,6 @@ autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
 autocmd FileType go setlocal ts=4 sts=4 sw=4 expandtab
 
 " Visual Settings
-set number
-set relativenumber
 set visualbell
 set noerrorbells
 

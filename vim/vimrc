@@ -1,6 +1,12 @@
 " Leader key
 let mapleader = " "
 
+
+" Source plugins, remaps and basic settings
 source ~/.vim/plugins.vim
 source ~/.vim/remaps.vim
 source ~/.vim/settings.vim
+
+" Numbering
+set number
+set relativenumber
