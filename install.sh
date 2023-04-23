@@ -13,6 +13,9 @@ backup_file() {
     fi
 }
 
+# Create missing directories
+mkdir -p "$HOME/.vim"
+
 backup_file "$HOME/vimrc"
 backup_file "$HOME/.vim/plugins.vim"
 backup_file "$HOME/.vim/remaps.vim"
@@ -22,11 +25,11 @@ backup_file "$HOME/.tmux.conf"
 echo "Creating symlinks....."
 
 # Create symlinks for files
-ln -sfv $PWD/vim/vimrc $HOME/.vimrc
-ln -sfv $PWD/vim/plugins.vim $HOME/.vim/plugins.vim
-ln -sfv $PWD/vim/remaps.vim $HOME/.vim/remaps.vim
-ln -sfv $PWD/vim/remaps.vim $HOME/.vim/settings.vim
-ln -sfv $PWD/tmux/tmux.conf $HOME/.tmux.conf
+ln -sfv "$PWD/vim/vimrc" "$HOME/.vimrc"
+ln -sfv "$PWD/vim/plugins.vim" "$HOME/.vim/plugins.vim"
+ln -sfv "$PWD/vim/remaps.vim" "$HOME/.vim/remaps.vim"
+ln -sfv "$PWD/vim/settings.vim" "$HOME/.vim/settings.vim"
+ln -sfv "$PWD/tmux/tmux.conf" "$HOME/.tmux.conf"
 
 # Display message when setup script is finished
 echo "Done setting up dotfiles!"
