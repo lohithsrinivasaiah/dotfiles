@@ -1,0 +1,5 @@
+" ----- SOURCE PLUGINS, REMAPS AND SETTINGS ----- "
+
+source ~/.vim/settings.vim
+source ~/.vim/plugins.vim
+source ~/.vim/remaps.vim
