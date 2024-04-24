@@ -69,3 +69,6 @@ set hlsearch
 
 " Set the commands to save in history default number is 20.
 set history=1000
+
+" set Backspace controlls
+set backspace=indent,eol,start

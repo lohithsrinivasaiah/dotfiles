@@ -15,10 +15,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'vim-scripts/grep.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tomasr/molokai'
-Plug 'fatih/vim-go'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --enable-python3-completer' }
+Plug 'preservim/nerdtree'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'

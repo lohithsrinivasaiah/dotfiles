@@ -2,9 +2,9 @@
 let mapleader = " "
 
 " ----- REMAPS ----- "
-nnoremap <leader>n :call ToggleNumbering()<CR>
+nnoremap <leader>tn :call ToggleNumbering()<CR>
 nnoremap <leader>h :nohlsearch<CR>
-nnoremap <leader>p :set paste!<CR>
+nnoremap <leader>sp :set paste!<CR>
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 
@@ -26,16 +26,23 @@ nnoremap n nzz
 nnoremap N Nzz
 
 " ----- PANES ----- "
-nnoremap <C-t> :tabe <CR>
+nnoremap <C-t> :tabe<CR>
 nnoremap <C-h> :tabprev<CR>
 nnoremap <C-l> :tabnext<CR>
+
+" ------ COPY/PASTE TO/FROM CLIPBOARD ------
+vnoremap <Leader>y "+y
+nnoremap <Leader>p "+p
+nnoremap <Leader>P "+P
 
 " ----- CUSTOM FUNCTIONS ----- "
 function! ToggleNumbering()
     if &relativenumber == 1
         set norelativenumber
+        set nonumber
     else
         set relativenumber
+        set number
     endif
 endfunction
 
@@ -47,3 +54,6 @@ nnoremap <leader>gp :GitGutterPrevHunk<cr>
 " ----- FZF ----- "
 nnoremap <C-p> :Files<CR>
 nnoremap <C-g> :GFiles<CR>
+
+" ----- NerdTree ----- "
+nnoremap <leader>nt :NERDTreeToggle<CR>
