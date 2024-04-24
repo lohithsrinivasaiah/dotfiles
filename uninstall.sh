@@ -43,6 +43,8 @@ remove_symlink "$HOME/.vim/settings.vim"
 remove_symlink "$HOME/.tmux.conf"
 remove_symlink "$HOME/.bash_aliases"
 
+exec bash
+
 # Display message when delete script is finished
 echo "Done deleting dotfiles!"
 

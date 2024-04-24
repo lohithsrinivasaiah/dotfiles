@@ -57,6 +57,8 @@ else
     echo "Alias already exists in .bashrc, skipping..."
 fi
 
+exec bash
+
 # Display message when the setup script is finished
 echo "Done setting up dotfiles!"
 
