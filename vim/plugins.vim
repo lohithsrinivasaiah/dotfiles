@@ -6,16 +6,20 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     let need_to_install_plugins = 1
 endif
 
-" ----- PLUG INSTALL PACKAGES ----- "
+" ------ ALE ------ "
+let g:ale_completion_enabled = 1
 
+" ----- PLUG INSTALL PACKAGES ----- "
 call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-scripts/grep.vim'
-Plug 'jiangmiao/auto-pairs'
+Plug 'Raimondi/delimitMate'
 Plug 'tomasr/molokai'
 Plug 'preservim/nerdtree'
+Plug 'dense-analysis/ale'
+Plug 'Valloric/YouCompleteMe'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -31,7 +35,6 @@ if need_to_install_plugins == 1
     echo "Done!"
     q
 endif
-
 " ----- PLUG INSTALL PACKAGES ----- "
 
 " ----- VIM-AIRLINE ----- "
@@ -60,7 +63,7 @@ set t_Co=256
 " ----- GIT GUTTER ----- "
 let g:gitgutter_map_keys = 0
 let g:gitgutter_override_sign_column_highlight = 0
-set updatetime=250
+set updatetime=1
 let g:gitgutter_max_signs = 500
 highlight clear SignColumn
 highlight GitGutterAdd ctermfg=2
@@ -68,3 +71,7 @@ highlight GitGutterChange ctermfg=3
 highlight GitGutterDelete ctermfg=1
 highlight GitGutterChangeDelete ctermfg=4
 
+" ------ ALE ------ "
+let g:ale_linters = {'python': ['flake8']}
+let g:ale_fixers = {'python': ['black', 'isort']}
+let g:ale_fix_on_save = 1
