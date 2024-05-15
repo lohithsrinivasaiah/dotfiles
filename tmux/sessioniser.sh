@@ -1,5 +1,18 @@
 #!/bin/bash
 
+activate_virtualenv() {
+    local session_name="$1"
+    local num_windows=$(tmux list-windows -t "$session_name" | wc -l)
+    local env_dir=$(find "$PWD" -type d -name "env" -print -quit)
+
+    if [ -n "$env_dir" ]; then
+        for ((i=0; i<num_windows; i++)); do
+            tmux send-keys -t "$session_name:$i" "source $env_dir/bin/activate && clear" Enter
+        done
+    fi
+}
+
+
 attach_or_create_session() {
     tmux has-session -t "$1" 2>/dev/null
     if [ $? -eq 0 ]; then
@@ -18,6 +31,7 @@ create_session() {
     for ((i=1; i<num_windows; i++)); do
         tmux new-window -d
     done
+    activate_virtualenv "$session_name"
     tmux attach-session -t "$session_name"
 }
 

@@ -16,9 +16,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-scripts/grep.vim'
 Plug 'Raimondi/delimitMate'
-Plug 'tomasr/molokai'
+Plug 'tomasiser/vim-code-dark'
 Plug 'preservim/nerdtree'
-Plug 'dense-analysis/ale'
 Plug 'Valloric/YouCompleteMe'
 
 if isdirectory('/usr/local/opt/fzf')
@@ -57,7 +56,7 @@ let g:fzf_action = {
 
 " ----- COLORSCHEME ----- "
 set background=dark
-colorscheme molokai
+colorscheme codedark
 set t_Co=256
 
 " ----- GIT GUTTER ----- "
@@ -75,3 +74,15 @@ highlight GitGutterChangeDelete ctermfg=4
 let g:ale_linters = {'python': ['flake8']}
 let g:ale_fixers = {'python': ['black', 'isort']}
 let g:ale_fix_on_save = 1
+
+function! IsHexColorLight(color) abort
+  let l:raw_color = trim(a:color, '#')
+
+  let l:red = str2nr(substitute(l:raw_color, '.{0}(.{2})', '1', 'g'), 16)
+  let l:green = str2nr(substitute(l:raw_color, '.{2}(.{2}).{2}', '1', 'g'), 16)
+  let l:blue = str2nr(substitute(l:raw_color, '.{4}(.{2})', '1', 'g'), 16)
+
+  let l:brightness = ((l:red * 299) + (l:green * 587) + (l:blue * 114)) / 1000
+
+  return l:brightness > 155
+endfunction
