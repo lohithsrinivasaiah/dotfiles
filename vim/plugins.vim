@@ -16,9 +16,10 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-scripts/grep.vim'
 Plug 'Raimondi/delimitMate'
-Plug 'tomasiser/vim-code-dark'
 Plug 'preservim/nerdtree'
 Plug 'Valloric/YouCompleteMe'
+Plug 'preservim/vim-indent-guides'
+Plug 'tomasr/molokai'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -56,8 +57,8 @@ let g:fzf_action = {
 
 " ----- COLORSCHEME ----- "
 set background=dark
-colorscheme codedark
 set t_Co=256
+colorscheme molokai
 
 " ----- GIT GUTTER ----- "
 let g:gitgutter_map_keys = 0
