@@ -57,3 +57,16 @@ nnoremap <C-g> :GFiles<CR>
 
 " ----- NerdTree ----- "
 nnoremap <leader>nt :NERDTreeToggle<CR>
+
+
+" ----- YOU COMPLETE ME ----- "
+nnoremap gd :YcmCompleter GoToDefinition<CR>
+nnoremap gy :YcmCompleter GetType<CR>
+nnoremap gD :YcmCompleter GoToDeclaration new-tab<CR>
+noremap <C-Space> :YcmCompleter GoTo<CR>
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+nnoremap K :YcmCompleter GetDoc<CR>
+nnoremap <Leader>e :YcmToggleErrors<CR>
+nnoremap <Leader>f :YcmCompleter GoToFile<CR>
+nnoremap <Leader>s :YcmCompleter GoToSymbol<CR>
