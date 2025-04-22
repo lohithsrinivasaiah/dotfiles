@@ -80,6 +80,17 @@ set nowrap
 " Backspace works as expected in insert mode.
 set backspace=indent,eol,start
 
+" ----- FZF ----- "
+" Open files in new tab on <CR> in FZF
+let g:fzf_action = {
+  \ 'enter': 'tabedit',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit'
+\ }
+
+" FZF: Restore default behavior for Esc (no custom Esc mapping)
+" (No let g:fzf_layout set here)
+
 " Optional: Show invisible characters (uncomment if desired)
 " set list listchars=tab:▸\ ,trail:·,extends:>,precedes:<,nbsp:+
 
