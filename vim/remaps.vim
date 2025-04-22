@@ -27,11 +27,11 @@ nnoremap <C-l> :tabnext<CR>
 " Split windows
 nnoremap <leader>ws :split<CR>
 nnoremap <leader>wv :vsplit<CR>
-" Move between windows
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
+" Move between windows (use Alt-h/l for splits)
+nnoremap <M-h> <C-w>h
+nnoremap <M-l> <C-w>l
+nnoremap <M-j> <C-w>j
+nnoremap <M-k> <C-w>k
 
 " ----- TERMINAL EMULATION (Vim 8+) -----
 nnoremap <silent> <leader>sv :vertical botright terminal<CR>
@@ -51,9 +51,10 @@ nnoremap <Leader>p "+p
 nnoremap <Leader>P "+P
 
 " ----- FZF & FILE NAVIGATION -----
+" No custom FZF config: Esc will close FZF popup as default
 nnoremap <C-p> :Files<CR>
 nnoremap <C-g> :GFiles<CR>
-nnoremap <leader>nt :NERDTreeToggle<CR>
+noremap <leader>nt :NERDTreeToggle<CR>
 
 " ----- GIT GUTTER -----
 nnoremap <leader>gt :GitGutterToggle<CR>
@@ -82,8 +83,11 @@ nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 
 " ----- BETTER ESCAPE FROM TERMINAL MODE -----
-if has('nvim') || exists(':tnoremap')
-  tnoremap <Esc> <C-\><C-n>
+if has('nvim')
+  augroup TerminalEsc
+    autocmd!
+    autocmd TermOpen * if &filetype !=# 'fzf' | tnoremap <buffer> <Esc> <C-\\><C-n> | endif
+  augroup END
 endif
 
 " ----- OPTIONAL: Disable Ex mode (rarely used, easy to hit by accident) -----
