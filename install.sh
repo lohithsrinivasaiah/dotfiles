@@ -49,3 +49,22 @@ fi
 echo
 
 echo "Done creating symlinks!"
+
+# Install TPM (Tmux Plugin Manager) and plugins
+TPM_DIR="$HOME/.tmux/plugins/tpm"
+if [ ! -d "$TPM_DIR" ]; then
+  echo "Installing TPM (Tmux Plugin Manager)..."
+  git clone https://github.com/tmux-plugins/tpm "$TPM_DIR"
+else
+  echo "TPM is already installed."
+fi
+
+# Install tmux plugins inside a tmux session
+if command -v tmux >/dev/null 2>&1; then
+  echo "Installing tmux plugins via TPM..."
+  tmux new-session -d -s tpm_install "sleep 2"    # create temporary session
+  tmux send-keys -t tpm_install "~/.tmux/plugins/tpm/bin/install_plugins" C-m
+  tmux kill-session -t tpm_install
+else
+  echo "[!] tmux not found. Skipping plugin installation."
+fi
