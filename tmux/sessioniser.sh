@@ -40,7 +40,7 @@ if [[ $# -lt 1 ]]; then
     exit 1
 fi
 
-session_name="$1"
+session_name="${1:0:7}"
 num_windows="${2:-4}"  # Default to 4 windows if the second argument is not provided
 attach_or_create_session "$session_name" "$num_windows"
 
