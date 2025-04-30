@@ -24,6 +24,7 @@ nnoremap N Nzz
 nnoremap <C-t> :tabe<CR>
 nnoremap <C-h> :tabprev<CR>
 nnoremap <C-l> :tabnext<CR>
+
 " Split windows
 nnoremap <leader>ws :split<CR>
 nnoremap <leader>wv :vsplit<CR>
@@ -40,10 +41,15 @@ nnoremap <silent> <leader>sh :belowright terminal<CR>
 " ----- INDENT/UNINDENT WITH TAB/S-TAB -----
 nnoremap <Tab> >>
 nnoremap <S-Tab> <<
-inoremap <Tab> <C-t>
-inoremap <S-Tab> <C-d>
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
+
+" Use Tab and Shift-Tab to navigate through popup menu in insert mode (CoC)
+" <Tab>: trigger completion if nothing is shown, or confirm the first match
+inoremap <silent><expr> <Tab> pumvisible() ? coc#_select_confirm() : coc#refresh()
+
+" <S-Tab>: just move backward if popup is visible
+inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 " ----- SYSTEM CLIPBOARD -----
 vnoremap <Leader>y "+y<Esc>
