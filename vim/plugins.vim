@@ -39,9 +39,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}   " Async intellisense engine
 " Delimiter completion
 Plug 'Raimondi/delimitMate'
 
-" Indentation guides (or try Yggdroot/indentLine)
-Plug 'preservim/vim-indent-guides'
-
 " Theme
 Plug 'tomasr/molokai'
 
